@@ -1,0 +1,9 @@
+func,dims,n_seed,goal,application,character,note
+1,2,10,maximise,Radiation/contamination source detection in a 2D field; only proximity gives a non-zero reading.,Sparse/flat (mostly ~0 except near sources); may have two optima (strong + weak source).,Explore to locate both sources.
+2,2,10,maximise,Mystery ML model returning a noisy log-likelihood score.,Noisy + multimodal with many local peaks.,Use noise (WhiteKernel) and explore to escape local optima.
+3,3,15,maximise,Drug discovery: combinations of three compounds; output = negative of adverse reactions.,Maximise a negated cost (toward 0).,Framed as maximisation of a transformed (negated) objective.
+4,4,30,maximise,Warehouse product-placement surrogate; output = (neg) gap vs an expensive baseline.,Dynamic with many local optima.,Needs robust tuning/validation.
+5,4,20,maximise,Chemical-process yield.,"Typically unimodal, a single peak.",Exploitation-leaning; large output scale (up to ~1089).
+6,5,20,maximise,Cake recipe with five ingredients; combined negative score (flavour/cost/waste...).,Negative-by-design; maximise toward 0.,Maximise the negative of the total penalty.
+7,6,30,maximise,"ML hyperparameter tuning (lr, reg, #layers...); output = performance (accuracy/F1).",Black-box; literature priors can inform the search space.,
+8,8,40,maximise,"8-param ML hyperparameter tuning (lr, batch, layers, dropout, reg, activation, optimiser, init range).",High-dimensional; global optimisation hard.,Target strong local maxima. Portal's '0-1 score' is illustrative; actual outputs differ.
