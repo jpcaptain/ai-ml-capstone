@@ -120,7 +120,7 @@ When the portal returns the scores, paste them into the final cell to append the
 | W7 | **Partition-BO debut** (f2, f4, f6, f7, f8), EI promotion (f3), space_fill (f1, f5) | **0** | Partition went **0-for-5** on debut — over-confident everywhere except f7 (returned 1.03, best f7 result in 5 weeks, still below the 1.688 incumbent). **f4's gamble failed a third time** (pred 2.77, actual −4.73 — its good region is razor thin). **The high-x5 hunch on f8 was disproven** (pred 10.13, actual 9.03). f5's quadrant probe returned 154 — another region ruled out. The round's real prize: **f1 returned its first non-zero reading in 7 weeks** (−0.0053 at (0.41, 0.47)) — there is structure near the centre. |
 | W8 | **LLM-reasoned** (f1), **tight-refine** (f4, f7), AEI (f2, f6), EI (f3), space_fill (f5), MES (f8) | **3** — f6, f7, f8 | **Best round since W2, and all three wins came from conservative moves.** f7 tight-refine predicted 1.698, returned **1.839** (+0.15). f6 AEI jumped −0.705 → **−0.254** (+0.45). f8 MES nudged the converged point to a marginal new best. f4's ±0.02 perturbation returned 0.513 — the 0.540 peak is narrow. f1's probe toward centre came back ~4 000× weaker than the W7 reading — the structure sits the *other* way from centre. |
 | W9 | llm_probe (f1), AEI (f2), EI (f3), micro-refine ±0.01 (f4), space_fill (f5), **tight-refine on the new winners** (f6, f7), MES (f8) | **2** — f2, f8 | **f2's first improvement in nine weeks**: 0.611 → **0.682** from a conservative near-incumbent probe. f8's third consecutive marginal MES nudge (9.94993). **f4 alarm**: the ±0.01 refine cost 0.23 — *worse* than W8's ±0.02 — distance doesn't predict loss, so f4 is likely noisy or razor-rugged; exact-coordinate reproduction test moved up to W10. f1 bracketed the hot spot: (0.41, 0.47) still strongest, next probe goes perpendicular. f6 near-reproduced (−0.264) — its basin is locally flat, good for the lock. |
-| W10 | llm_probe perpendicular (f1), tight-refine (f2, f6, f7), AEI (f3), **exact repro test** (f4), space_fill (f5), MES (f8) | — | The endgame round: **f4 re-submits the exact W2 winner** — if 0.5401 doesn't reproduce, the banked value was partly luck. f1 probes (0.385, 0.511), perpendicular to the bracketed line. f2 hunts around its new 0.682 winner. f6/f7 map their basins' edges with tiny fresh-direction steps. |
+| W10 | llm_probe perpendicular (f1), tight-refine (f2, f6, f7), AEI (f3), **exact repro test** (f4), space_fill (f5), MES (f8) | **1** — f8 | **f4 REPRODUCTION TEST PASSED**: 0.5401292083386946 vs W2's 0.5401292083386875 — identical to 12 decimals. Combined with f5's W3 reproduction, the portal functions are **deterministic**: every banked best is safely lockable, and W9's ±0.01 loss was ruggedness, not noise. f8's 4th consecutive marginal MES nudge. f1's perpendicular probe found nothing — the hot spot is tight around (0.41, 0.47). f6 (−0.263) and f7 (1.819) both landed close to their winners; winners stand. |
 
 Current best scores per function:
 
@@ -129,11 +129,11 @@ Current best scores per function:
 | f1 | ~0 | — | still searching; best lead is the −0.0053 reading at (0.41, 0.47) from W7 — signal fades toward centre |
 | f2 | **0.682** | (0.70, 0.05) | AEI (W9) — first improvement over the seed |
 | f3 | −0.035 | seed point | not improved since seed |
-| f4 | **0.540** | (0.41, 0.42, 0.35, 0.44) | EI (W2); narrow peak — ±0.02 perturbation (W8) returned 0.513 |
+| f4 | **0.540** | (0.41, 0.42, 0.35, 0.44) | EI (W2); **reproduced exactly in W10** — deterministic, razor-thin peak |
 | f5 | **8 662.405** | (1, 1, 1, 1) | EI (W2); **confirmed deterministic** in W3, **peak proven sharp** in W5 (x4→0.92 dropped score by 1 314) |
 | f6 | **−0.254** | (0.48, 0.37, 0.60, 0.73, 0) | AEI (W8) |
 | f7 | **1.839** | (0, 0.12, 0.04, 0.17, 0.33, 0.63) | tight-refine (W8) |
-| f8 | **9.94993** | (0.12, 0.15, 0.12, 0.21, 1, 0.55, 0.26, 1) | MES (W9 — third consecutive marginal nudge) |
+| f8 | **9.94993** | (0.12, 0.15, 0.12, 0.21, 1, 0.55, 0.26, 1) | MES (W10 — fourth consecutive marginal nudge) |
 
 ---
 
