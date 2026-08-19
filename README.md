@@ -105,6 +105,8 @@ Run the cells top to bottom. The notebook:
 
 When the portal returns the scores, paste them into the final cell to append the new row per function.
 
+**A note on notebook outputs:** the weekly notebooks for rounds 3–11 carry embedded cell outputs from earlier executions, so their inline plots show the data as it stood when they were last run in Jupyter. The authoritative, up-to-date visuals for every round are the PNG files in `outputs/weekNN/`, which were regenerated fresh at each round's build. The week 12 notebook was fully re-executed and its embedded outputs are current.
+
 ---
 
 ## Progress (live)
