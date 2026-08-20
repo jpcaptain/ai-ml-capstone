@@ -124,20 +124,20 @@ When the portal returns the scores, paste them into the final cell to append the
 | W9 | llm_probe (f1), AEI (f2), EI (f3), micro-refine ±0.01 (f4), space_fill (f5), **tight-refine on the new winners** (f6, f7), MES (f8) | **2** — f2, f8 | **f2's first improvement in nine weeks**: 0.611 → **0.682** from a conservative near-incumbent probe. f8's third consecutive marginal MES nudge (9.94993). **f4 alarm**: the ±0.01 refine cost 0.23 — *worse* than W8's ±0.02 — distance doesn't predict loss, so f4 is likely noisy or razor-rugged; exact-coordinate reproduction test moved up to W10. f1 bracketed the hot spot: (0.41, 0.47) still strongest, next probe goes perpendicular. f6 near-reproduced (−0.264) — its basin is locally flat, good for the lock. |
 | W10 | llm_probe perpendicular (f1), tight-refine (f2, f6, f7), AEI (f3), **exact repro test** (f4), space_fill (f5), MES (f8) | **1** — f8 | **f4 REPRODUCTION TEST PASSED**: 0.5401292083386946 vs W2's 0.5401292083386875 — identical to 12 decimals. Combined with f5's W3 reproduction, the portal functions are **deterministic**: every banked best is safely lockable, and W9's ±0.01 loss was ruggedness, not noise. f8's 4th consecutive marginal MES nudge. f1's perpendicular probe found nothing — the hot spot is tight around (0.41, 0.47). f6 (−0.263) and f7 (1.819) both landed close to their winners; winners stand. |
 | W11 | llm_probe hot-box (f1), tight-refine ±0.01 (f2, f3, f6, f7), micro ±0.005 (f4), space_fill (f5), MES (f8) | **4** — f1, f6, f7, f8 | **Best round of the project.** f1's hot-box probe returned **+0.0027 — the first positive reading ever** (sign flips from −0.0053 within ~0.015: the structure is sharp and we're on top of it). f6 −0.254 → **−0.150** (+0.105). f7 1.839 → **1.857**. f8's 5th consecutive MES nudge. f4's ±0.005 cost 0.05 — the razor peak's exact coords are the lock. f5's free probe found 3 552 near (1, 0.97, 0.96, 0.28) — biggest non-corner value seen. |
-| W12 | signal_step (f1), tight-refine (f2), partition (f3), axis probe (f4), space_fill (f5), **PCA-aimed steps** (f6, f7), MES (f8) | — | Last searching round. New **PCA-aimed stepping**: the top-6 points of each live pocket are projected onto their principal axis and the tiny step follows the uphill direction — on f7 the top-6 scores order perfectly along that axis. f1 continues the line through the sign flip to (0.43, 0.455). Free slots (f3, f4, f5) take no-risk probes; locks are guaranteed by the reproducibility results. |
+| W12 | signal_step (f1), tight-refine (f2), partition (f3), axis probe (f4), space_fill (f5), **PCA-aimed steps** (f6, f7), MES (f8) | **2** — f1, f8 | **f1's reading grew 11.7× to 0.0315** — the line through the sign flip keeps climbing and hasn't turned over. f8's 6th consecutive MES improvement crossed 9.95. PCA-aimed steps on f6/f7 both landed below their winners — the pockets' peaks appear to be the winners themselves. f4's single-axis +0.005 probe cost 0.10: exact-coordinates lock only. New **PCA-aimed stepping**: the top-6 points of each live pocket are projected onto their principal axis and the tiny step follows the uphill direction — on f7 the top-6 scores order perfectly along that axis. f1 continues the line through the sign flip to (0.43, 0.455). Free slots (f3, f4, f5) take no-risk probes; locks are guaranteed by the reproducibility results. |
 
 Current best scores per function:
 
 | Func | Best so far | At input | Acquisition that found it |
 |---|---|---|---|
-| f1 | **+0.0027** | (0.42, 0.46) | hot-box probe (W11) — first positive reading; source is right here |
+| f1 | **+0.0315** | (0.43, 0.455) | signal_step (W12) — 11.7× the W11 reading; still climbing along the line |
 | f2 | **0.682** | (0.70, 0.05) | AEI (W9) — first improvement over the seed |
 | f3 | −0.035 | seed point | not improved since seed |
 | f4 | **0.540** | (0.41, 0.42, 0.35, 0.44) | EI (W2); **reproduced exactly in W10** — deterministic, razor-thin peak |
 | f5 | **8 662.405** | (1, 1, 1, 1) | EI (W2); **confirmed deterministic** in W3, **peak proven sharp** in W5 (x4→0.92 dropped score by 1 314) |
 | f6 | **−0.150** | (0.46, 0.38, 0.60, 0.73, 0) | tight-refine (W11) |
 | f7 | **1.857** | (0, 0.13, 0.05, 0.17, 0.33, 0.64) | tight-refine (W11) |
-| f8 | **9.94995** | (0.12, 0.15, 0.12, 0.21, 1, 0.55, 0.26, 1) | MES (W11 — fifth consecutive marginal nudge) |
+| f8 | **9.95001** | (0.12, 0.15, 0.12, 0.21, 1, 0.55, 0.26, 1) | MES (W12 — sixth consecutive marginal nudge) |
 
 ---
 
