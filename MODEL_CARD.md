@@ -1,12 +1,12 @@
 # Model card — trust-gated Bayesian optimisation
 
-*Following the model-card framework (Mitchell et al.). Describes the optimisation approach used across weeks 1–10 of the BBO capstone.*
+*Following the model-card framework (Mitchell et al.). Describes the optimisation approach used across the full 13 rounds of the BBO capstone.*
 
 ## Overview
 
 **Name:** Trust-gated Bayesian optimisation with a portfolio of scoring rules.
 **Type:** Sequential black-box optimiser — a predictive model per function plus a per-function scoring rule that picks the next query.
-**Version:** as of week 10 of Stage 2 (the approach evolved weekly; the README's progress table is the version history).
+**Version:** final (13 rounds complete; the README's progress table is the version history).
 
 ## Intended use
 
@@ -28,24 +28,24 @@ The core loop never changed: fit a model to each function's history, score candi
 
 ## Performance
 
-Best value found per function (through week 9's returns):
+Final results per function (seed best → final-round return):
 
-| Function | Best found | Note |
-|---|---|---|
-| f1 | ≈ 0 | faint structure located but no positive reading yet |
-| f2 | 0.682 | first improved on the seed in week 9 |
-| f3 | −0.035 | never beat the seed |
-| f4 | 0.540 | reproduction test in flight — may be partly luck |
-| f5 | **8 662.405** | confirmed exact and repeatable at (1,1,1,1) |
-| f6 | −0.254 | found week 8, basin locally flat |
-| f7 | 1.839 | found week 8 |
-| f8 | 9.94993 | improved in seven separate weeks; textbook diminishing returns |
+| Function | Seed best | Final return | Note |
+|---|---|---|---|
+| f1 | ≈ 0 | **+0.048** | source located in week 11 after eleven silent rounds; the final-round step beat the banked value by 53% |
+| f2 | 0.611 | 0.588 | best observed 0.682 (week 9); revealed as noisy in the final round |
+| f3 | −0.035 | −0.033 | never beaten by search; revealed as (mildly) noisy |
+| f4 | −4.03 | **0.540** | week 2 winner; reproduced exactly twice — deterministic, razor-thin peak |
+| f5 | 1 089 | **8 662.405** | 8× the seed; reproduced exactly three times |
+| f6 | −0.714 | **−0.154** | improved in three separate weeks; mildly noisy at the top |
+| f7 | 1.365 | **1.857** | improved twice from the same pocket; deterministic |
+| f8 | 9.599 | **9.950** | improved in eight separate weeks; deterministic |
 
 **Metrics used:** best-so-far per function (the headline), gain per query (the efficiency view), and the weekly trust score per model (the honesty view). No single metric tells the story — function 3's flat line and function 5's 8× jump are both part of the same strategy.
 
 ## Assumptions and limitations
 
-- **Repeatability is assumed, verified only once.** The plan treats every banked best as re-submittable. That's proven for function 5 and unproven elsewhere — function 4's behaviour suggests it may not hold there.
+- **Repeatability turned out to be a 4-of-8 property.** Functions 4, 5, 7 and 8 reproduce exactly at identical inputs; functions 2, 3 and 6 return different values on repeat queries. Two reproduction tests on two functions were not sufficient evidence to generalise to all eight — the project's final and most instructive miscalibration.
 - **Peaks are assumed sharp.** Refinement uses tiny steps; where the top is actually flat this wastes queries.
 - **The models assume smooth, consistent surfaces.** At least two functions visibly violate this, which is why the trust check exists.
 - **Single observations are treated as facts** — an unavoidable consequence of the one-query-per-week budget, and the deepest validity limit of the whole exercise.

@@ -1,6 +1,6 @@
 # Datasheet — BBO capstone query history
 
-*Following the datasheet-for-datasets framework (Gebru et al.). Covers the query history and function evaluations collected during Stage 2 of the BBO capstone, weeks 1–10.*
+*Following the datasheet-for-datasets framework (Gebru et al.). Covers the complete query history and function evaluations of Stage 2 of the BBO capstone — 13 rounds, now frozen as the project record.*
 
 ## Motivation
 
@@ -12,15 +12,15 @@
 
 **What does it contain?** One file per function (`data/f1.csv` … `data/f8.csv`). Each row is one query: the input values (`x1` … `xd`) and the returned score (`y`). The first rows are the seed points provided by the course; every row after that is one weekly submission, in order.
 
-**Size and format.** Plain CSV. As of week 10: between 19 points (functions 1 and 2) and 49 points (function 8), a little over 250 rows in total across all eight files. Two supporting files: `function_descriptions.csv` (the portal's plain-text description of each function) and `r2_history.csv` (a weekly record of how trustworthy each function's model was).
+**Size and format.** Plain CSV. Final state: between 23 points (functions 1 and 2) and 53 points (function 8), 279 rows in total across all eight files. Two supporting files: `function_descriptions.csv` (the portal's plain-text description of each function) and `r2_history.csv` (a weekly record of how trustworthy each function's model was).
 
-**Are there gaps?** Yes, and they're worth calling out. The sampling is clustered — early rounds favoured the corners of each search box, later rounds clustered around known winners, and the middles are thin. Function 5's interior wasn't deliberately probed until week 7. Almost every value has been observed exactly once, so the data can't tell you how repeatable any single reading is (the exception is function 5, whose peak was re-queried and reproduced exactly).
+**Are there gaps?** Yes, and they're worth calling out. The sampling is clustered — early rounds favoured the corners of each search box, later rounds clustered around known winners, and the middles are thin. Function 5's interior wasn't deliberately probed until week 7. Repeat queries at identical coordinates exist for several functions and reveal a split: functions 4, 5, 7 and 8 reproduce exactly, while functions 2, 3 and 6 return different values on repeat — so single observations of those three carry noise.
 
 ## Collection process
 
 **How were the queries generated?** By a weekly optimisation loop: fit a model to each function's history, score candidate inputs with a scoring rule chosen per function, submit the best candidate, record the portal's returned value. The scoring rules evolved over the ten rounds — from a single exploration rule in week 1, through a family of specialised rules, to a trust check that decides each week whether the model should be believed at all. The full week-by-week story is in the README's progress table and the weekly reflections.
 
-**Over what time frame?** One round per week, from late May to late July 2026. One query per function per round — the defining constraint of the whole exercise.
+**Over what time frame?** One round per week, from late May to late August 2026 — 13 rounds in total. One query per function per round — the defining constraint of the whole exercise.
 
 ## Preprocessing and uses
 
@@ -36,4 +36,4 @@
 
 **Terms of use.** Free to use for study and research with attribution. The underlying functions belong to the course; this data set only describes where I probed them and what came back.
 
-**Who maintains it?** Me (JP Camelbeek). It grows by eight rows per week until the final submission, after which it is frozen as the project record.
+**Who maintains it?** Me (JP Camelbeek). The final submission has been made; the data set is now frozen as the project record.
