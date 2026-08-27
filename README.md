@@ -98,7 +98,7 @@ Choice per function shifts week-to-week as data accumulates. Early rounds bias *
 ## Quickstart
 
 ```bash
-pip install numpy pandas scikit-learn scipy matplotlib jupyter
+pip install -r requirements.txt
 jupyter notebook weekly/weekNN.ipynb
 ```
 
