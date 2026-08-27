@@ -4,6 +4,12 @@
 
 ---
 
+## In plain language
+
+I was given eight mystery formulas. Each takes a set of numbers between 0 and 1 and returns a single score — and the only way to learn anything about them is to submit a guess and see what comes back, once per week for thirteen weeks. My system learned from every result: it built a simple predictive model for each formula, checked each week whether that model deserved to be trusted, and placed each guess where the evidence pointed. By the end, six of the eight scores were substantially better than where they started — one improved eightfold — and every decision along the way can be traced, checked and reproduced from this repository.
+
+---
+
 ## At a glance
 
 - **Goal** — find inputs that score as high as possible on each of 8 mystery functions.
@@ -87,7 +93,7 @@ Choice per function shifts week-to-week as data accumulates. Early rounds bias *
 └── README.md
 ```
 
-**Documentation:** the [Datasheet](DATASHEET.md) describes the query-history data set (what it contains, how it was collected, its gaps and appropriate uses); the [Model Card](MODEL_CARD.md) describes the optimisation approach (strategy evolution across the ten rounds, performance per function, assumptions and failure modes).
+**Documentation:** the [Datasheet](DATASHEET.md) describes the query-history data set (contents, collection, gaps and appropriate uses); the [Model Card](MODEL_CARD.md) describes the optimisation approach (strategy evolution, final performance per function, assumptions and failure modes). The [project presentation](<weekly/reflections/BBO capstone project presentation - JP Camelbeek.pdf>) summarises the approach for a general audience, the [retrospective](weekly/reflections/retrospective.md) reviews the full campaign, and the weekly reflections in [weekly/reflections/](weekly/reflections/) record each round's decisions as they were made. Licensed under the [MIT License](LICENSE). All data lives in this repository — the seed data (`initial_data/`, provided by the course) and the full query history (`data/`, 279 rows) are small enough to host directly.
 
 ## Quickstart
 

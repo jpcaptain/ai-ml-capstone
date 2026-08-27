@@ -34,11 +34,11 @@ With a fresh start I would change three things. First, I would run repeat querie
 
 The defining trade-off was set by the budget: one query per function per week, every query permanently spent. Within that, three tensions shaped every round.
 
-Exploration versus exploitation I eventually stopped treating as a schedule and started treating as a per-function state. Each week, every function was classified by its evidence — verified, improving, localising, or no reliable signal — and each state had a defined action. Function 5 was resolved by week 3, so its slot became free exploration for the rest of the project (which is how I confirmed no second peak existed). Function 1 stayed in exploration for eleven rounds because nothing was proven, then flipped to pure pursuit when a signal appeared.
+Exploration versus exploitation I eventually stopped treating as a schedule and started treating as a per-function state. Each week, every function was classified by its evidence — verified, improving, localising, or no reliable signal — and each state had a defined action. Function 5 was resolved by week 3, so its slot became free exploration for the rest of the project. Function 1 stayed in exploration for eleven rounds because nothing was proven, then flipped to pure pursuit when a signal appeared.
 
 Verification versus performance was the least obvious trade-off and the one I most value in hindsight. I spent whole queries deliberately re-submitting known coordinates — three reproduction tests in total — that could never improve a score. They bought certainty: they established which results were bankable, converted the final round from a hope into a guarantee for the deterministic functions, and (in the final round itself) exposed the noise in the other three.
 
-Sophistication versus simplicity was resolved decisively by the results. The neural network, the partition method's bold picks and the model's own long-range forecasts all underperformed; small steps near confirmed winners produced eleven of the project's new bests. At 20–50 data points per function, simple moves anchored in evidence beat clever moves anchored in models — not as a slogan, but as the consistent pattern across twelve rounds.
+Sophistication versus simplicity was resolved decisively by the results. The neural network, the partition method's bold picks and the model's own long-range forecasts all underperformed; small steps near confirmed winners produced eleven of the project's new bests. At 20–50 data points per function, simple moves anchored in evidence beat clever moves anchored in models.
 
 ## Learning and application
 
